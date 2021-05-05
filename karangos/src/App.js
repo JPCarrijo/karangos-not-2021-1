@@ -2,9 +2,15 @@
 //import './App.css';
 //import Button from '@material-ui/core/Button'
 import TopBar from './ui/TopBar'
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import { createMuiTheme, ThemeProvider, makeStyles } from '@material-ui/core/styles';
 import yellow from '@material-ui/core/colors/yellow';
 import pink from '@material-ui/core/colors/pink';
+import FooterBar from './ui/FooterBar';
+import { Box } from '@material-ui/core';
+//import MainMenu from './ui/MainMenu';
+import KarangosList from './routed/KarangosList';
+import KarangosForm from './routed/KarangosForm';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 const theme = createMuiTheme({
   palette: {
@@ -17,6 +23,40 @@ const theme = createMuiTheme({
     },
   },
 });
+
+const useStyles = makeStyles((theme) => ({
+  box: {
+    backgroundColor: theme.palette.background.default,
+    minHeight: '100vh'    // 100% da altura da área visível
+  },
+  routed: {
+    padding: '25px',
+    color: theme.palette.text.primary,
+    fontFamily: theme.typography.fontFamily
+  }
+}));
+
+function Main() {
+  const classes = useStyles();
+  return (
+    <Box className={classes.box}>
+      <BrowserRouter>
+        <TopBar />
+        <Box id="routed" className={classes.routed}>
+          <Switch>
+            <Route path="/list">
+              <KarangosList/>
+            </Route>
+            <Route path="/new">
+              <KarangosForm/>
+            </Route>
+          </Switch>
+        </Box>
+        <FooterBar />
+      </BrowserRouter>
+    </Box>
+  )
+}
 
 function App() {
   return (
@@ -33,7 +73,7 @@ function App() {
     </div>*/
     <div>
       <ThemeProvider theme={theme}>
-        <TopBar/>
+        <Main />
       </ThemeProvider>
     </div>
   );
