@@ -8,9 +8,10 @@ import pink from '@material-ui/core/colors/pink';
 import FooterBar from './ui/FooterBar';
 import { Box } from '@material-ui/core';
 //import MainMenu from './ui/MainMenu';
-import KarangosList from './routed/KarangosList';
+import KarangosList from './routed/KarangosList2';
 import KarangosForm from './routed/KarangosForm';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
 
 const theme = createMuiTheme({
   palette: {
