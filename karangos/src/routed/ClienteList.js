@@ -75,7 +75,7 @@ export default function ClienteList() {
 
 
     useEffect(() => {
-        getData()
+        setTimeout(() => getData(), 1000)
     }, [])
 
     // Função tenta buscar os dados

@@ -49,8 +49,8 @@ export default function KarangosList() {
   const history = useHistory()
 
   useEffect(() => {
-    
-    getData()
+
+    setTimeout(() => getData(), 1000)
   }, []) // Quando a lista de dependências é um vetor vazio, o useEffect()
   // é executado apenas uma vez, no carregamento inicial do componente
 
