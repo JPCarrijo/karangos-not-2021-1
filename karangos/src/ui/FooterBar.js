@@ -1,7 +1,9 @@
 import { Typography } from '@material-ui/core';
 import Toolbar from '@material-ui/core/Toolbar';
 import { makeStyles } from '@material-ui/core/styles';
-import LocalCafeTwoToneIcon from '@material-ui/icons/LocalCafeTwoTone';
+import LocalCafeRoundedIcon from '@material-ui/icons/LocalCafeRounded';
+import SvgIcon from '@material-ui/core/SvgIcon';
+import { green } from '@material-ui/core/colors';
 
 const useStyles = makeStyles((theme) => ({
     text: {
@@ -27,11 +29,21 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function FooterBar() {
+
+    function HomeIcon(props) {
+        return (
+          <SvgIcon {...props}>
+            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+          </SvgIcon>
+        );
+      }
+
+
     const classes = useStyles();
     return (
         <Toolbar className={classes.toolbar}>
-            <Typography variant="caption" align="center" className={classes.text}>
-                Desenvolvido com <LocalCafeTwoToneIcon fontSize="small"/> por<a href="mailto:professor@faustocintra.com.br" className={classes.link}>Prof. Fausto Cintra</a>
+            <Typography variant="caption" style={{fontSize: 16}}align="center" className={classes.text}>
+                Desenvolvido de  < HomeIcon style={{ color: green[500] }} fontSize ="small"/> com <LocalCafeRoundedIcon style={{ color: green[500] }}fontSize="small"/> por <a style={{ color: green[500] }} href="https://github.com/JPCarrijo" className={classes.link}>João Paulo Carrijo</a>
             </Typography>
         </Toolbar>
     )
