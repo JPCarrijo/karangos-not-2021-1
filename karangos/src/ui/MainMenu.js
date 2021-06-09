@@ -9,14 +9,14 @@ import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
     menuButton: {
-      marginRight: theme.spacing(2),
+        marginRight: theme.spacing(2),
     },
     menuLink: {
 
         color: theme.palette.text.primary,
         textDecoration: 'none'
     }
-  }));
+}));
 
 export default function MainMenu() {
     const classes = useStyles();
@@ -47,10 +47,16 @@ export default function MainMenu() {
                 onClose={handleClose}
             >
                 <MenuItem onClick={handleClose}>
-                    <Link to="/list" className={classes.menuLink}>Listagem de Karangos</Link>
+                    <Link to="/list2" className={classes.menuLink}> Registro de Clientes </Link>
                 </MenuItem>
                 <MenuItem onClick={handleClose}>
-                    <Link to="/new" className={classes.menuLink}>Cadastrar Novo Karango</Link>
+                    <Link to="/new2" className={classes.menuLink}> Cadastrar Clientes </Link>
+                </MenuItem>
+                <MenuItem onClick={handleClose}>
+                    <Link to="/list" className={classes.menuLink}> Registro de Karangos </Link>
+                </MenuItem>
+                <MenuItem onClick={handleClose}>
+                    <Link to="/new" className={classes.menuLink}> Cadastrar Karango </Link>
                 </MenuItem>
                 {/*<MenuItem onClick={handleClose}>Logout</MenuItem>*/}
             </Menu>
