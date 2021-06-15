@@ -49,10 +49,12 @@ const useStyles = makeStyles({
 })
 
 export default function HomePage() {
+    
     const classes = useStyles()
 
     const [visible, setVisible] = useState(false)   // Transforme isto em uma variável de estado
 
+    // Função que altera o estado da figura
     function handleFigure() {
 
         if (visible) {
@@ -71,10 +73,9 @@ export default function HomePage() {
             <p>
                 Seu objetivo é demonstrar as funcionalidades e possibilidades do React em conjunto com a biblioteca de componentes Material UI, acessando uma API REST remota.
             </p>
-            <p></p>
+            <p>
                 Clique sobre ícone do menu no canto superior esquerdo para acessar as funcionalidades.
             </p>
-
             <p className={classes.paragBotao}>
                 <Button
                     color="secondary"
