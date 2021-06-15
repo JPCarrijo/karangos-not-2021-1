@@ -43,11 +43,11 @@
     }
 
     //TERCEIRO COMPONENTE 
-    function DenPop(props) {
+    function DenPop({result, classif}) {
       return (
         <div className="result">
-          <div>Densidade populacional: {props.res}</div>
-          <div>Categoria: {props.classif}</div>
+          <div>Densidade Populacional: {result}</div>
+          <div>Categoria: {classif}</div>
         </div>
       )
     }
@@ -60,7 +60,7 @@
       const [area, setArea] = React.useState()
       const [populacao, setPopulacao] = React.useState()
       const [densidade, setDensidade] = React.useState()
-      const [classif, setClassif] = React.useState()
+      const [classificacao, setClassificacao] = React.useState()
 
       function handleInputChange(event) {
 
@@ -73,12 +73,12 @@
         3. Escreva aqui o código necessário para o useEffect()*/
       React.useEffect(() => {
 
-        let classif, res
+        let classif, result
         /*Nesse código, deverá ser feito o seguinte:
         - O cálculo da densidade populacional, igual a população dividida por área*/
 
-        if(isNaN(area) || isNaN(populacao)) res = '---'
-        else res = populacao / area
+        if(isNaN(area) || isNaN(populacao)) result = '---'
+        else result = populacao / area
 
         /*
         - A definição da categoria, conforme as regras:
@@ -90,15 +90,15 @@
         - NÃO SE ESQUEÇA DAS DEPENDÊNCIAS!!!!
 
       **********************************************************************************/
-        if(res < 100)
+        if(result < 100)
           classif = 'Baixa Densidade'
-        else if(res < 1000)
+        else if(result < 1000)
           classif = 'Média Densidade'
-        else if(res > 1000)
+        else if(result > 1000)
           classif = 'Alta Densidade'
 
-        setDensidade(res)
-        setClassif(classif)
+        setDensidade(result)
+        setClassificacao(classif)
 
 
     }, [area, populacao])
@@ -117,7 +117,7 @@
           {/* Coloque aqui o segundo componente */}
           <Populacao onInputChange={handleInputChange}/>
           {/* Coloque aqui o terceiro componente */}
-          <DenPop res={densidade} classif={classif}/>
+          <DenPop result={densidade} classif={classificacao}/>
         </>
       )
     }
