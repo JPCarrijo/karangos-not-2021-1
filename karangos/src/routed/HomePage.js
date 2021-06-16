@@ -55,6 +55,8 @@ export default function HomePage() {
     const [visible, setVisible] = useState(false)   // Transforme isto em uma variável de estado
 
     // Função que altera o estado da figura
+
+    /*
     function handleFigure() {
 
         if (visible) {
@@ -63,6 +65,10 @@ export default function HomePage() {
         }
         setVisible(true)
     }
+
+    function handleFigure() {
+        setVisible(!visible)
+    }*/
 
     return (
         <>
@@ -80,7 +86,7 @@ export default function HomePage() {
                 <Button
                     color="secondary"
                     variant="contained"
-                    onClick={handleFigure}
+                    onClick={() => setVisible(!visible)}
                 >
                     Surpresa
                 </Button>
