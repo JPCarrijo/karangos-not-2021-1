@@ -13,6 +13,7 @@ import KarangosForm from './routed/KarangosForm';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import ClienteList from './routed/ClienteList';
 import ClienteForm from './routed/ClienteForm';
+import HomePage from './routed/HomePage';
 
 
 
@@ -49,6 +50,9 @@ function Main() {
         <TopBar />
         <Box id="routed" className={classes.routed}>
           <Switch>
+            <Route path="/" exact="true">
+              <HomePage />
+            </Route>
             <Route path="/list">
               <KarangosList />
             </Route>
